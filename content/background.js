@@ -10,10 +10,15 @@ var	$ = function($) {
 
 	ctx = $('#icon')[0].getContext('2d'),
 
-	grad = ctx.createLinearGradient(0,0,0,19);
+	highlight = ctx.createLinearGradient(0, 0, 0, 19),
+	cylinder = ctx.createLinearGradient(4, 0, 11, 0);
 
-grad.addColorStop(0, 'rgba(255, 255, 255, .6)');
-grad.addColorStop(1, 'rgba(240, 240, 240,  0)');
+highlight.addColorStop(0, 'rgba(255, 255, 255, .2)');
+highlight.addColorStop(1, 'rgba(240, 240, 240, .2)');
+
+cylinder.addColorStop(0, 'rgba(255, 255, 255, .2)');
+cylinder.addColorStop(0.4, 'rgba(255, 255, 255, .6)');
+cylinder.addColorStop(1, 'rgba(240, 240, 240, .1)');
 
 xhr.onreadystatechange = function() {
 	if (xhr.readyState != 4 || xhr.status != 200)
@@ -56,21 +61,12 @@ xhr.onreadystatechange = function() {
 
 
 	// highlight
-	grad = ctx.createLinearGradient(0, 0, 0, 19);
-	grad.addColorStop(0, 'rgba(255, 255, 255, .2)');
-	grad.addColorStop(1, 'rgba(240, 240, 240, .2)');
-
-	ctx.fillStyle = grad;
+	ctx.fillStyle = highlight;
 	ctx.fillRect(11, 2, 2, 15);
 
 
-	// more highlighting
-	grad = ctx.createLinearGradient(4, 0, 11, 0);
-	grad.addColorStop(0, 'rgba(255, 255, 255, .2)');
-	grad.addColorStop(0.4, 'rgba(255, 255, 255, .6)');
-	grad.addColorStop(1, 'rgba(240, 240, 240, .1)');
-
-	ctx.fillStyle = grad;
+	// cylinder shaping
+	ctx.fillStyle = cylinder;
 	ctx.fillRect(4, 2, 11, 15);
 
 
