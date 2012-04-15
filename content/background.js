@@ -25,7 +25,6 @@ xhr.onreadystatechange = function() {
 	    v = 40,
 
 	    data = $('.hnb table td:nth-child(2) td:nth-child(3)').map(function(e, i) {
-
 		    var t = e.innerHTML.replace(/^\s+|\s+$/g, '');
 
 		    // return first three values in integer form
