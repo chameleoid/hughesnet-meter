@@ -21,7 +21,7 @@ xhr.onreadystatechange = function() {
 
 	$('.hnb')[0].innerHTML = xhr.responseText.replace(/<meta[^>]+>/g, '');
 
-	var grad, hue,
+	var grad, hue, t,
 	    v = 40,
 
 	    data = $('.hnb table td:nth-child(2) td:nth-child(3)').map(function(e, i) {
@@ -33,9 +33,7 @@ xhr.onreadystatechange = function() {
 		    	return +t;
 
 		    // return time
-		    return t; /*+t.split(/:/g).reduce(function(a, b, i) {
-			    return (+a * 60) + (+b);
-		    }) * 1000;*/
+		    return t;
 	    });
 
 
@@ -75,6 +73,12 @@ xhr.onreadystatechange = function() {
 
 	ctx.fillStyle = grad;
 	ctx.fillRect(4, 2, 11, 15);
+
+
+	// time bar
+	t = +data[3].split(/:/g).reduce(function(a, b) { return (+a * 60) + (+b) }) / 86400;
+	ctx.fillStyle = '#aaa';
+	ctx.fillRect(1, 18, 1, -(17 * (1 - t)));
 
 
 	chrome.browserAction.setTitle({ title: data[2] + '% (' + data[1] + 'MB/' + data[0] + 'MB)\n' + (data[0] / 2) + 'MB refill in: ' + data[3] });
