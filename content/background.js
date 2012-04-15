@@ -8,6 +8,8 @@ var	$ = function($) {
 
 	xhr = new XMLHttpRequest(),
 
+	package = new Image(),
+
 	ctx = $('#icon')[0].getContext('2d'),
 
 	highlight = ctx.createLinearGradient(0, 0, 0, 19),
@@ -20,13 +22,15 @@ cylinder.addColorStop(0, 'rgba(255, 255, 255, .2)');
 cylinder.addColorStop(0.4, 'rgba(255, 255, 255, .6)');
 cylinder.addColorStop(1, 'rgba(240, 240, 240, .1)');
 
+package.src = '../images/package.png';
+
 xhr.onreadystatechange = function() {
 	if (xhr.readyState != 4 || xhr.status != 200)
 		return;
 
 	$('.hnb')[0].innerHTML = xhr.responseText.replace(/<meta[^>]+>/g, '');
 
-	var grad, hue, t,
+	var grad, offset, hue, t,
 	    v = 40,
 
 	    data = $('.hnb table td:nth-child(2) td:nth-child(3)').map(function(e, i) {
@@ -75,6 +79,11 @@ xhr.onreadystatechange = function() {
 	ctx.fillStyle = '#aaa';
 	ctx.fillRect(1, 18, 1, -(17 * (1 - t)));
 
+
+	// download zone notification
+	offset = /DT\)$/.test(t = new Date()) ? 4 : 5;
+	if (t.getUTCHours() - offset >= 2 && t.getUTCHours() - offset < 7)
+		ctx.drawImage(package, 9, 9);
 
 	chrome.browserAction.setTitle({ title: data[2] + '% (' + data[1] + 'MB/' + data[0] + 'MB)\n' + (data[0] / 2) + 'MB refill in: ' + data[3] });
 	chrome.browserAction.setIcon({ imageData: ctx.getImageData(0, 0, 19, 19) });
