@@ -1,4 +1,5 @@
-var	$ = function($) {
+var	allowance_url = 'http://192.168.0.1/stlui/user/allowance_request.html',
+	$ = function($) {
 		var a = Array.prototype.map.call(document.querySelectorAll($), function(v) {
 			return v;
 		});
@@ -23,6 +24,10 @@ cylinder.addColorStop(0.4, 'rgba(255, 255, 255, .6)');
 cylinder.addColorStop(1, 'rgba(240, 240, 240, .1)');
 
 package.src = '../images/package.png';
+
+chrome.browserAction.onClicked.addListener(function(tab) {
+	chrome.tabs.create({ index: tab.index,  url: allowance_url });
+});
 
 xhr.onreadystatechange = function() {
 	if (xhr.readyState != 4 || xhr.status != 200)
@@ -90,7 +95,7 @@ xhr.onreadystatechange = function() {
 };
 
 setInterval((function() {
-	xhr.open('GET', 'http://192.168.0.1/stlui/user/allowance_request.html', true);
+	xhr.open('GET', allowance_url, true);
 	xhr.send(null);
 	return arguments.callee;
 })(), 15000);
