@@ -1,6 +1,6 @@
 {
 	"name": "HughesNet Allowance Meter",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "",
 
 	"permissions": [
@@ -10,6 +10,7 @@
 	"background_page": "internal/background.html",
 
 	"browser_action": {
-		"default_title": "HughesNet"
+		"default_title": "HughesNet",
+		"default_icon": "images/default.png"
 	}
 }
