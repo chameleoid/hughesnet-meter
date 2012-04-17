@@ -50,6 +50,13 @@ xhr.onreadystatechange = function() {
 	    });
 
 
+	// TODO: expand this to have reboot detection later
+	if (typeof data[0] != 'number') {
+		chrome.browserAction.setTitle({ title: 'HughesNet Allowance Monitor' });
+		chrome.browserAction.setIcon({ path: '../images/error.png' });
+	}
+
+
 	ctx.clearRect(0, 0, 19, 19);
 
 
