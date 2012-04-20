@@ -1,4 +1,4 @@
-var	allowance_url = 'http://192.168.0.1/stlui/user/allowance_request.html',
+var	allowance_url = 'http://www.systemcontrolcenter.com/stlui/user/allowance_request.html',
 	$ = function($) {
 		var a = Array.prototype.map.call(document.querySelectorAll($), function(v) {
 			return v;
