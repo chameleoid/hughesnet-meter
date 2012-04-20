@@ -105,4 +105,4 @@ setInterval((function() {
 	xhr.open('GET', allowance_url, true);
 	xhr.send(null);
 	return arguments.callee;
-})(), 15000);
+})(), 60000);
