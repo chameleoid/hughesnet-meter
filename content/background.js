@@ -99,7 +99,12 @@ xhr.onreadystatechange = function() {
 	if (t.getUTCHours() - offset >= 2 && t.getUTCHours() - offset < 7)
 		ctx.drawImage(package, 9, 9);
 
-	chrome.browserAction.setTitle({ title: data[2] + '% (' + data[1] + 'MB/' + data[0] + 'MB)\n' + (data[0] / 2) + 'MB refill in: ' + data[3] });
+	chrome.browserAction.setTitle({
+		title:	(limited ? 'Download speed limited\n' : '') +
+			data[2] + '% (' + data[1] + 'MB/' + data[0] + 'MB)\n' +
+			(data[0] / 2) + 'MB refill in: ' + data[3]
+	});
+
 	chrome.browserAction.setIcon({ imageData: ctx.getImageData(0, 0, 19, 19) });
 };
 
