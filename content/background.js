@@ -38,6 +38,8 @@ xhr.onreadystatechange = function() {
 	var grad, offset, hue, t,
 	    v = 40,
 
+	    limited = /download speed limited/.test(xhr.responseText),
+
 	    data = $('.hnb table td:nth-child(2) td:nth-child(3)').map(function(e, i) {
 		    var t = e.innerHTML.replace(/^\s+|\s+$/g, '');
 
@@ -63,7 +65,7 @@ xhr.onreadystatechange = function() {
 	// background
 	ctx.shadowBlur = 2;
 	ctx.shadowColor = 'rgba(0, 0, 0, .6)';
-	ctx.fillStyle = '#eee';
+	ctx.fillStyle = limited ? '#fdd' : '#eee';
 	ctx.fillRect(4, 2, 11, 15);
 
 	ctx.shadowBlur = 0;
