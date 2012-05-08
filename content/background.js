@@ -9,7 +9,7 @@ var	allowance_url = 'http://www.systemcontrolcenter.com/stlui/user/allowance_req
 
 	xhr = new XMLHttpRequest(),
 
-	package = new Image(),
+	dlzone = new Image(),
 
 	ctx = $('#icon')[0].getContext('2d'),
 
@@ -23,7 +23,7 @@ cylinder.addColorStop(0, 'rgba(255, 255, 255, .2)');
 cylinder.addColorStop(0.4, 'rgba(255, 255, 255, .6)');
 cylinder.addColorStop(1, 'rgba(240, 240, 240, .1)');
 
-package.src = '../images/package.png';
+dlzone.src = '../images/package.png';
 
 chrome.browserAction.onClicked.addListener(function(tab) {
 	chrome.tabs.create({ index: tab.index,  url: allowance_url });
@@ -35,7 +35,7 @@ xhr.onreadystatechange = function() {
 
 	$('.hnb')[0].innerHTML = xhr.responseText.replace(/<meta[^>]+>/g, '');
 
-	var grad, offset, hue, t,
+	var offset, hue, t,
 	    v = 40,
 
 	    limited = /download speed limited/.test(xhr.responseText),
@@ -89,7 +89,7 @@ xhr.onreadystatechange = function() {
 
 
 	// time bar
-	t = +data[3].split(/:/g).reduce(function(a, b) { return (+a * 60) + (+b) }) / 86400;
+	t = +data[3].split(/:/g).reduce(function(a, b) { return (+a * 60) + (+b); }) / 86400;
 	ctx.fillStyle = '#aaa';
 	ctx.fillRect(1, 18, 1, -(17 * (1 - t)));
 
@@ -97,7 +97,7 @@ xhr.onreadystatechange = function() {
 	// download zone notification
 	offset = /DT\)$/.test(t = new Date()) ? 4 : 5;
 	if (t.getUTCHours() - offset >= 2 && t.getUTCHours() - offset < 7)
-		ctx.drawImage(package, 9, 9);
+		ctx.drawImage(dlzone, 9, 9);
 
 	chrome.browserAction.setTitle({
 		title:	(limited ? 'Download speed limited\n' : '') +
