@@ -1,7 +1,9 @@
 {
 	"name": "HughesNet Allowance Meter",
 	"version": "0.0.5",
-	"description": "",
+	"description": "Constantly displays remaining HughesNet daily download allowance",
+
+	"manifest_version": "2",
 
 	"permissions": [
 		"http://www.systemcontrolcenter.com/"
