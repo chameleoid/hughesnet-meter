@@ -14,6 +14,8 @@ Installation
 Credits
 =======
 ![Meter](https://github.com/chameleoid/hughesnet-meter/raw/master/images/icon.png)
+
 by [WebIconSet.com](http://www.webiconset.com/mobile-icon-set/)
+
 
 ![Package Icon](https://github.com/chameleoid/hughesnet-meter/raw/master/images/package.png) by [famfamfam](http://www.famfamfam.com/)
