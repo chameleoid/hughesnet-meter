@@ -9,3 +9,10 @@ Installation
 5. Select the directory containing hughesnet-meter
 6. ???
 7. Profit!
+
+
+Credits
+=======
+![Meter](https://github.com/chameleoid/hughesnet-meter/raw/master/images/icon.png) by [WebIconSet.com](http://www.webiconset.com/mobile-icon-set/)
+
+![Package Icon](https://github.com/chameleoid/hughesnet-meter/raw/master/images/package.png) by [famfamfam](http://www.famfamfam.com/)
