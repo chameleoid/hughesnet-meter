@@ -1,6 +1,6 @@
 {
 	"name": "HughesNet Allowance Meter",
-	"version": "0.0.8",
+	"version": "1.13.625.0",
 	"description": "Constantly displays remaining HughesNet daily download allowance",
 
 	"manifest_version": 2,
